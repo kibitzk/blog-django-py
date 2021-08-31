@@ -1,4 +1,4 @@
-FROM centos/python-35-centos7:latest
+FROM centos/python-36-centos7:latest
 
 USER root
 
@@ -12,6 +12,8 @@ RUN rm -rf /tmp/src/.git* && \
     chmod -R g+w /tmp/src
 
 USER 1001
+
+RUN pip install -U "pip>=19.3.1"
 
 ENV S2I_SCRIPTS_PATH=/usr/libexec/s2i \
     S2I_BASH_ENV=/opt/app-root/etc/scl_enable \
